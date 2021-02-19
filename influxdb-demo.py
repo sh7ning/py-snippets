@@ -44,8 +44,8 @@ for i in range(1, 60*24*7):     # 60*24*7
         "fields": {     # 数据
             "value": random.randint(160, 400) / 100
         },
-        # "time": int(t.timestamp())      # * 1000000000
-        "time": t  # * 1000000000
+        "time": int(t.timestamp())
+        # "time": t
     })
 
 host = '192.168.31.76'
