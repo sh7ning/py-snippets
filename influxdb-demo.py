@@ -37,11 +37,11 @@ for i in range(1, 60*24*7):     # 60*24*7
     t = t + datetime.timedelta(minutes=1)
 
     json_body.append({
-        "measurement": "rate_history",
-        "tags": {
+        "measurement": "rate_history",  # 表名
+        "tags": {   # 用于查询的tag
             "type": "rate",
         },
-        "fields": {
+        "fields": {     # 数据
             "value": random.randint(160, 400) / 100
         },
         # "time": int(t.timestamp())      # * 1000000000
