@@ -21,7 +21,7 @@ class InfluxDB(object):
         if not_exists:
             self.client.create_database(db_name)
             # 设置默认保留策略
-            influx.client.create_retention_policy("30d_rp", "30d", "1", db_name, True, "4w")
+            self.client.create_retention_policy("30d_rp", "30d", "1", db_name, True, "4w")
 
         self.client.switch_database(db_name)
 
