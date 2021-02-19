@@ -44,8 +44,8 @@ for i in range(1, 60*24*7):     # 60*24*7
         "fields": {     # 数据
             "value": random.randint(160, 400) / 100
         },
-        "time": int(t.timestamp())
-        # "time": t
+        # "time": int(t.timestamp())
+        "time": t
     })
 
 host = '192.168.31.76'
@@ -57,7 +57,7 @@ influx.client.drop_database(influx_db_name)     # TODO
 influx.select_db(influx_db_name)
 
 # print(influx.client.get_list_retention_policies())
-influx.client.write_points(json_body, batch_size=100, time_precision='s')
+influx.client.write_points(json_body, batch_size=100, time_precision='s')   # 这里的 s 调整会影响具体数据，不过只对 time 为 datetime 类型生效， time 为 int 的时候应该为 s
 
 sql = 'SELECT distinct("value") FROM "30d_rp"."rate_history" WHERE time >= now() - 1h GROUP BY time(1m) fill(null);'
 result = influx.client.query(sql)
