@@ -44,8 +44,8 @@ for i in range(1, 60*24*7):     # 60*24*7
         "fields": {     # 数据
             "value": random.randint(160, 400) / 100
         },
-        # "time": int(t.timestamp())
-        "time": t
+        "time": int(t.timestamp())      # 建议用这个
+        # "time": t   # 这个用法要小心，主要是时区问题，比如只写入当前时间一条记录，然后查询不到，时区问题。。。
     })
 
 host = '192.168.31.76'
