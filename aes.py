@@ -14,7 +14,7 @@ class AESCipher:
     @staticmethod
     def _pad_key(key, num=16):
         if len(key) > 16:
-            raise Exception(f"length of key > {num}")
+            raise Exception(f"the length of the aes key is too long, {len(key)} > {num}")
         amount_to_pad = num-len(key)
         pad = chr(amount_to_pad)
         return str.encode(key + pad * amount_to_pad)
@@ -55,7 +55,7 @@ class AESCipher:
 
 
 if __name__ == '__main__':
-    c = AESCipher("keyskey")
+    c = AESCipher("keyskeykeyskeykeyskeykeyskey")
     import sys
     encrypt = c.encrypt(sys.argv[1])
     print('加密后:\n%s' % encrypt)
