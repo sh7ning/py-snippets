@@ -55,7 +55,7 @@ class AESCipher:
 
 
 if __name__ == '__main__':
-    c = AESCipher("keyskeykeyskeykeyskeykeyskey")
+    c = AESCipher("this is key")
     import sys
     encrypt = c.encrypt(sys.argv[1])
     print('加密后:\n%s' % encrypt)
